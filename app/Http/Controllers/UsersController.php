@@ -13,6 +13,17 @@ class UsersController extends Controller
         $user = Auth::user();
         return view('mypage',['user'=>$user]);
     }
+    public function edit(Request $request)
+    {
+        $user = Auth::user();
+        return view('edit',['form'=>$user]);
+    }
+    public function update(Request $request)
+    {
+        $this->validate($request, User::$rules);
+        $user = Auth::user();
+        $user
+    }
     
     public function index(Request $request)
     {
