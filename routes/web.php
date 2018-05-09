@@ -23,6 +23,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/mypage','UsersController@mypage');
+Route::get('/mypage/edit','UsersController@edit');
+Route::post('/mypage/edit','UsersController@update');
+
+
 
 Route::get('/user','UsersController@index');
 Route::get('/user/add','UsersController@add');

@@ -21,8 +21,14 @@ class UsersController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, User::$rules);
-        $user = Auth::user();
-        $user
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->instrument_id = $request->instrument_id;
+        $user->genre_id = $request->genre_id;
+        $user->comment = $request->comment;
+        $user->save();
+        return redirect('/mypage');
     }
     
     public function index(Request $request)
